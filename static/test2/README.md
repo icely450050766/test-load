@@ -25,4 +25,4 @@
 得出结论：
  - DOMContentLoaded 是指的 domReady，load 是指的外部资源加载完毕。
  - 如果插入外部资源链接前，load事件已经触发，那么无影响。(index.html、index4.html)
- - 如果插入外部资源链接前，load事件还未触发，那么插入的资源的加载时间，会加到load时间去（load事件延迟）（index3.html）
+ - 如果插入外部资源链接前，load事件还未触发，那么插入的资源的加载时间，会加到load时间去（load事件延迟）（index2.html、index3.html）
