@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>测试Domcontentload之后插入css影响load吗？</title>
+    <title>测试DOMContentLoaded之后插入css影响load吗</title>
     <script>
         console.log('立即执行')
     </script>
@@ -11,6 +11,6 @@
     <link href='delay8s.css' type='text/css' rel='stylesheet'>
 </head>
 <body>
-<div id='green' class='class-green'>一条立即的内嵌js + 延时1s的js（DOMcontentload之后1后插入延时2s的css） + 延时8s的css </div>
+<div id='green' class='class-green'>内嵌js + 延时1s的js（DOMContentLoaded 后1后插入延时2s的css） + 延时8s的css</div>
 </body>
 </html>

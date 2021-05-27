@@ -1,25 +1,35 @@
-#测试Domcontentload之后插入css影响load吗
+#测试DOMContentLoaded之后插入css影响load吗
 
 ##index.html测试行为：
 
 一个内联的js
-
-1个延时1s的js,延时1s的js在DOmcontentload之后1s插入一条延时2s的css
+一个延时1s的js（DOMContentLoaded 后，延时1s插入延时2s的css）
 
 ##index2.html测试行为：
 
-一条立即的内嵌js
-延时1s的js（DOMcontentload之后1后插入延时2s的css
-延时8s的css
+一个内嵌js
+一个延时1s的js（DOMContentLoaded 后，延时1s插入延时2s的css）
+一个延时8s的css
 
 ##index3.html测试行为
 
-内嵌的js
-延时0s的js（DOMcontentload之后插入1s插入延时8s的css延时2s的css
+一个内嵌的js
+一个延时0s的js（DOMContentLoaded 后插入1s插入延时8s的css）
+一个延时2s的css
 
 ##index4.html测试行为：
-内嵌js
-延时0s的js（DOMcontentload之后1s插入延时8s的css）
-延时0s的css
+一个内嵌js
+一个延时0s的js（DOMContentLoaded 后1s插入延时8s的css）
+一个延时0s的css
 
-得出结论：DOMContentload是指的domready，load是指的外部资源加载完毕。如果在插入外部资源链接之前 load事件已经触发，那么无效果。如果插入外部资源链接之前load事件还未触发，那么插入的的资源会计算到load事件的事件中去
+得出结论：
+ - DOMContentLoaded 是指的 domReady，load 是指的外部资源加载完毕。
+ 
+ - 如果插入外部资源链接前，load事件已经触发，那么无影响。
+  (index.html、index4.html)
+ 
+ - 如果插入外部资源链接前，load事件还未触发，那么插入的资源的加载时间，会加到load时间去（load事件延迟）
+ （index3.html）
+  
+ - 页面从上往下解析，如果css放<head>，那css加载时间会阻塞页面呈现（解析完成才会展示页面，动态插入的css除外）。
+ （index2.html）
