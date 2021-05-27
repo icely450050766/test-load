@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>测试css加载是否会阻塞DOM解析和渲染</title>
+    <script src='delay0s.js'></script>
+    <link href='delay3s.css' type='text/css' rel='stylesheet'>
+</head>
+<body>
+<div id='green' class='class-green'>延时0s的js（插入延时8s的css） + 延时3s的css</div>
+</body>
+</html>

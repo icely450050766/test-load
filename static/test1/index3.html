@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>测试css加载是否会阻塞DOM解析和渲染</title>
+    <script>
+        setTimeout(function () {
+            console.log(document.getElementById('green'))
+        }, 1000)
+    </script>
+    <link href='delay3s.css' type='text/css' rel='stylesheet'>
+</head>
+<body>
+<div id='green' class='class-green'>内嵌js延时1s打印dom元素 + 延时3s的css</div>
+</body>
+</html>
